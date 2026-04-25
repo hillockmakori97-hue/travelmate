@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/x-icon" href="avianex-brands-solid-full.svg">
+    <style>
+        .anchor {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* 1. The Base Card (The "Home" state) */
+        .card {
+            /* Set your default colors using the variables we made */
+            background-color: var(--bs-card-bg) !important;
+            color: var(--bs-body-color) !important;
+
+            /* THE FIX: This must be here to make both hover AND theme-switch smooth */
+            transition: background-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease !important;
+        }
+
+        /* 2. The Hover State (The "If" condition) */
+        .card:hover {
+            /* Only define what CHANGES on hover here */
+            background-color: #28a745 !important;
+            /* Turns green */
+            transform: translateY(-10px);
+            /* Pops up */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3) !important;
+        }
+    </style>
+    <style>
+        /* --- 1. LIGHT MODE (The Default/Reset) --- */
+        [data-bs-theme="light"],
+        :root {
+            --bs-body-bg: #ffffff;
+            --bs-body-color: #212529;
+            --bs-card-bg: #ffffff;
+            --bs-card-color: #212529;
+            --bs-border-color: rgba(0, 0, 0, 0.125);
+        }
+
+        /* --- 2. DARK MODE (The Override) --- */
+        [data-bs-theme="dark"] {
+            --bs-body-bg: #121212;
+            --bs-body-color: #f8f9fa;
+            --bs-card-bg: #1e1e1e;
+            --bs-card-color: #f8f9fa;
+            --bs-border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        /* --- 3. APPLY TO ALL ELEMENTS --- */
+        /* This 'Force' rule ensures everything responds to the variables above */
+        body,
+        .card,
+        .navbar {
+            color: var(--bs-body-color) !important;
+            border-color: var(--bs-border-color) !important;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            /* Smooth transition! */
+        }
+
+        /* Reset image brightness in light mode */
+        [data-bs-theme="light"] img {
+            filter: brightness(1);
+        }
+
+        [data-bs-theme="dark"] img {
+            filter: brightness(0.8);
+        }
+        .dark{
+            margin-left: 320px;
+        }
+        .dark:hover{
+            background-color: #28a745;
+            transition: 0.4s ease;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark opacity-50 fixed-top">
+        <div class="container-fluid" id="Travelmate">
+            <a class="navbar-brand" href="#">Travelmate</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <div class="navbar-nav pe-5">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" href="#About">About</a>
+                    <a class="nav-link" href="#Tours">Tours</a>
+                    <a class="nav-link" href="#Contact">Contact</a>
+                    <a class="nav-link" href="#"><button type="button" class="btn btn-outline-light"
+                            data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Subcribe
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+
+    </nav><br><br><br>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="" class="">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1"
+                                placeholder="Username@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                            <input type="tel" class="form-control" id="exampleFormControlInput1"
+                                placeholder="Phone Number">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-sm-12">
+            <div class="container-fluid bg-body-secondary text-center justify-content-center pt-5 mt-3 ps-2" id="Home">
+                <h1 style="font-size: 70px;" class="fw-bold">Explore the world with travel mate</h1>
+                <p>Unforgetable journeys,crafted with care</p>
+                <button class="btn btn-primary">Plan Your trip</button>
+
+                <div class="pt-5">
+                    <div id="carouselExampleCaptions" class="carousel slide card">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="tokyo.jpg" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Discover Tokyo</h5>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="maldives.jpg" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Discover maldives</h5>
+                                </div>
+                            </div>
+                            <div class="carousel-item shadow">
+                                <img src="Dubai.jpg" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block mine">
+                                    <h5>Visit Dubai</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><br>
+    <div class="container"><br>
+        <div class="row" id="About">
+            <h2 class="text-center text-md-center">About Travelmate</h2><br><br><br>
+            <div class="col-md-6 col-sm-12">
+                <p class="fs-5">Travelmate is your trusted partener in planning unforgeable trips across the globe. With
+                    a team of
+                    expirienced travel experts we craft personalized travel adventures to suit your style and budget.
+                </p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Handpicked destinations</li>
+                    <li class="list-group-item">Affordable travel packages</li>
+                    <li class="list-group-item">24/7 Customer Support</li>
+                </ul>
+
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <img src="car.jpg" alt="" class="img-fluid rounded-3">
+            </div>
+
+        </div><br><br><br>
+        <div class="col">
+            <h1 class="text-center text-md-center">Why Choose Travemate</h1><br>
+            <h6>Customer Satisfaction</h6>
+            <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="95" aria-valuemin="0"
+                aria-valuemax="100">
+                <div class="progress-bar bg-success" style="width: 95%"></div>
+            </div><br>
+            <h6>Affordable Packages</h6>
+            <div class="progress" role="progressbar" aria-label="Info example" aria-valuenow="90" aria-valuemin="0"
+                aria-valuemax="100">
+                <div class="progress-bar bg-info" style="width: 90%"></div>
+            </div><br>
+            <h6>Return Travelers</h6>
+
+            <div class="progress" role="progressbar" aria-label="Warning example" aria-valuenow="85" aria-valuemin="0"
+                aria-valuemax="100">
+                <div class="progress-bar bg-warning" style="width: 85%"></div>
+            </div><br>
+        </div>
+        <div class="container" id="Tours">
+            <h1 class="text-center">Top Packages</h1><br><br>
+            <div class="row g-5 img-fluid">
+                <div class="col-sm-12 col-md-6 col-lg-3">
+                    <div class="card border-0 shadow">
+                        <img src="strawberries.jpg" class="card-img-top" alt="...">
+                        <div class="card-body img-fluid">
+                            <h5 class="card-title">Dubai Tour</h5>
+                            <p class="card-text">Desert safari and city lights <br><br></p>
+                            <a href="#" class="btn btn-primary w-100">Book</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-3">
+                    <div class="card border-0 shadow">
+                        <img src="zanzibar getaway.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Zanzibar Getaway</h5>
+                            <p class="card-text">Beach bliss and cultural charm <br><br></p>
+                            <a href="#" class="btn btn-primary text-center w-100">Book</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-3">
+                    <div class="card border-0 shadow">
+                        <img src="maldives escape.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Maldives Escape</h5>
+                            <p class="card-text">Ultimate luxury overwater stay <br><br></p>
+                            <a href="#" class="btn btn-primary text-center w-100">Book</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-3 rounded-2">
+                    <div class="card border-0 shadow">
+                        <img src="5daysindubai.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">5 Days in Dubai</h5>
+                            <p class="card-text">Enjoy luxury Shopping,deser safaris and skyscrapers</p>
+                            <a href="#" class="btn btn-primary text-center w-100">Book</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h1 class="text-center">Upcoming Tours</h1><br>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col" class="bg-black text-white">Destination</th>
+                    <th scope="col" class="bg-black text-white">Date</th>
+                    <th scope="col" class="bg-black text-white">Duration</th>
+                    <th scope="col" class="bg-black text-white">Scope</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Capetown</th>
+                    <td>June,10 2025</td>
+                    <td>7 days</td>
+                    <td>$899</td>
+                </tr>
+                <tr>
+                    <th scope="row">Bali</th>
+                    <td>July 5, 2025</td>
+                    <td>5 Days</td>
+                    <td>$1100</td>
+                </tr>
+                <tr>
+                    <th scope="row">Rome</th>
+                    <td>August 15,2025</td>
+                    <td>5 Days</td>
+                    <td>$999</td>
+                </tr>
+            </tbody>
+        </table>
+    </div><br><br>
+    <div class="bg-body-secondary container-fluid">
+        <div class="conatiner">
+            <h1 class="text-center pt-5">What Our Travelers Say</h1>
+            <div class="row g-4 pt-3">
+                <div class="col-md-4 col-sm-12 col-lg-4">
+                    <div class="card w-75 mb-5">
+                        <div class="card-body">
+                            <p class="card-text">"Travelmate Planned my honeymoon in the Maldives and it was
+                                magical.Highly recommend!"
+                                <br><Strong>~Jane Doe</Strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12 col-lg-4">
+                    <div class="card w-75 mb-5">
+                        <div class="card-body">
+                            <p class="card-text">"Superb Customer service and unforgetable expiriences in zanzibar!"
+                                <br><br><Strong>~John Smith</Strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12 col-lg-4">
+                    <div class="card w-75 mb-5 ps-2">
+                        <div class="card-body">
+                            <p class="card-text">"every deatil was taken care of. The paris trip exceeded my
+                                expectations."
+                                <br><br>~<strong>Mary Johnson</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="text-center">Get in Touch</h1>
+    <div class="container w-50" id="Contact">
+        <form class="">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="email" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3">
+                <label for="Message" class="form-label">Message</label>
+                <textarea name="Message" class="form-control mb-3"></textarea>
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn btn-light dark" id="theme-toggle">Theme Toggle</button>
+        </form>
+    </div><br><br>
+
+
+    <div class="bg-black text-white h-25">
+        <div class="container justify-content-sm-center">
+            <div class="row">
+                <div class="col-sm-12 col-md-4">
+                    <h3>Travelmate</h3>
+                    <p>We turn your Travel dreams into real adventures</p>
+                </div>
+                <div class="col-sm-12 col-lg-4 col-md-4">
+                    <ul style="list-style: none;">
+                        <a href="" class="text-white text-decoration-none">
+                            <li>links</li>
+                        </a>
+                        <a href="" class="text-white text-decoration-none">
+                            <li>Home</li>
+                        </a>
+                        <a href="" class="text-white text-decoration-none">
+                            <li>About</li>
+                            <a href="" class="text-white text-decoration-none">
+                                <li>Contact</li>
+                            </a>
+                    </ul>
+                </div>
+                <div class="col-sm-12 col-lg-4 col-md-4">
+                    <p>Follow us</p>
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                </div>
+            </div>
+            <p class="text-center">&copy; 2025 Travelmate. All rights reserved</p>
+
+
+        </div>
+
+    </div>
+
+    <script>const toggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        // 1. Check for saved theme in localStorage
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            htmlElement.setAttribute('data-bs-theme', savedTheme);
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            // 2. Check current theme
+            const currentTheme = htmlElement.getAttribute('data-bs-theme');
+
+            // 3. Flip it
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            // 4. Apply and Save
+            htmlElement.setAttribute('data-bs-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
